@@ -42,3 +42,34 @@ class TitleList(TreeNode):
             for i, track in enumerate(title.tracks):
                 q = '└' if len(title.tracks) - i == 1 else '├'
                 print(f'{p[1]}     {q}─ {await selected_sym(title)} {await track.get_type()} - {await track.get_codec_long()}')
+
+    async def get_json_info(self):
+
+
+        # print(await self.get_name())
+
+        titles = []
+        for i, title in enumerate(self._titles):
+            titles.append({
+                "file_output": await title.get_output_file_name(),
+                "length": str(await title.get_duration()),
+            })
+            # p = ('└', ' ') if len(self._titles) - i == 1 else ('├', '│')
+
+
+            # print(f'{p[1]}  ├─ Chapters')
+            # for i, chapter in enumerate(title.chapters):
+            #     q = '└' if len(title.chapters) - i == 1 else '├'
+            #     print(f'{p[1]}  │  {q}─ {await chapter.get_name()} - {await chapter.get_datetime()}')
+            # stream = {}
+            # print(f'{p[1]}  └─ Tracks')
+            # for i, track in enumerate(title.tracks):
+                # q = '└' if len(title.tracks) - i == 1 else '├'
+                # print(f'{p[1]}     {q}─ {await selected_sym(title)} {await track.get_type()} - {await track.get_codec_long()}')
+
+        disc_info = {
+            "disc": {"name": await self.get_name()},
+            "titles": titles,
+        }
+        return disc_info
+
