@@ -44,10 +44,6 @@ class TitleList(TreeNode):
                 print(f'{p[1]}     {q}─ {await selected_sym(title)} {await track.get_type()} - {await track.get_codec_long()}')
 
     async def get_json_info(self):
-
-
-        # print(await self.get_name())
-
         titles = []
         for i, title in enumerate(self._titles):
             tmp = {}
