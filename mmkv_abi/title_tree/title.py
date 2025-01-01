@@ -30,6 +30,9 @@ class Title(TreeNode):
     async def get_disc_size(self):
         return await self.get_info(ItemAttribute.DiskSize)
     
+    async def get_disc_size_bytes(self):
+        return await self.get_info(ItemAttribute.DiskSizeBytes)
+    
     async def get_name(self):
         return await self.get_info(ItemAttribute.Name)
     

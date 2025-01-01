@@ -53,6 +53,7 @@ class TitleList(TreeNode):
             
             tmp["file_output"] = await title.get_output_file_name()
             tmp["length"] = str(await title.get_duration())
+            tmp["size"] = await title.get_disc_size_bytes()
             tmp["size_human"] = await title.get_disc_size()
 
             titles.append(tmp)
