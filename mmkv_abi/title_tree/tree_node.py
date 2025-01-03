@@ -18,6 +18,28 @@ class TreeNode:
     async def get_name(self):
         return await self.get_info(ItemAttribute.Name)
 
+    async def get_type(self):
+        raw = await self.get_info(ItemAttribute.Type)
+        out = raw
+        if out == "Blu-ray disc":
+            out = "BD"
+        return out
+
+    async def get_volume_name(self):
+        return await self.get_info(ItemAttribute.VolumeName)
+
+    async def get_language_code(self):
+        return await self.get_info(ItemAttribute.MetadataLanguageCode)
+
+    async def get_language_name(self):
+        return await self.get_info(ItemAttribute.MetadataLanguageName)
+
+    async def get_comment(self):
+        return await self.get_info(ItemAttribute.Comment)
+
+    async def get_source_filename(self):
+        return await self.get_info(ItemAttribute.SourceFileName)
+
     async def get_state(self):
         if self._state is None:
             self._state = await self._makemkv().get_ui_item_state(self._handle)
