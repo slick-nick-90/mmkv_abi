@@ -38,3 +38,6 @@ class Title(TreeNode):
 
     async def get_output_file_name(self):
         return await self.get_info(ItemAttribute.OutputFileName)
+
+    async def get_tree_info(self):
+        return await self.get_info(ItemAttribute.TreeInfo)

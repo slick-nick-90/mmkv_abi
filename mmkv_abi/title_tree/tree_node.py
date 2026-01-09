@@ -34,8 +34,8 @@ class TreeNode:
     async def get_language_name(self):
         return await self.get_info(ItemAttribute.MetadataLanguageName)
 
-    async def get_comment(self):
-        return await self.get_info(ItemAttribute.Comment)
+    async def get_tree_info(self):
+        return await self.get_info(ItemAttribute.TreeInfo)
 
     async def get_source_filename(self):
         return await self.get_info(ItemAttribute.SourceFileName)

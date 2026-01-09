@@ -52,7 +52,9 @@ class TitleList(TreeNode):
                 tmp['chapter_count'] = int(chapter_count)
             
             tmp["file_output"] = await title.get_output_file_name()
+            tmp["information"] = await title.get_tree_info()
             tmp["length"] = str(await title.get_duration())
+            tmp["name"] = await title.get_name()
             tmp["size"] = int(await title.get_disc_size_bytes())
             tmp["size_human"] = await title.get_disc_size()
             tmp["source_filename"] = await title.get_source_filename()
@@ -61,7 +63,7 @@ class TitleList(TreeNode):
 
         disc_info = {
             "disc": {
-                "information": await self.get_name(),
+                "information": await self.get_tree_info(),
                 "metadata_langcode": await self.get_language_code(),
                 "metadata_language": await self.get_language_name(),
                 "name": await self.get_name(),
